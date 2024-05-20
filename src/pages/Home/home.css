@@ -1,0 +1,13 @@
+.text-shadow {
+	text-shadow: 4px 0 #fff, -4px 0 #fff, 0 4px #fff, 0 -4px #fff,
+		2px 2px #fff, -2px -2px #fff, 2px -2px #fff, -2px 2px #fff;
+}
+
+.outerTextShadow {
+	text-shadow: 4px 0 #fff, -4px 0 #fff, 0 4px #fff, 0 -4px #fff,
+		2px 2px #fff, -2px -2px #fff, 2px -2px #fff, -2px 2px #fff;
+}
+
+img {
+	box-shadow: none;
+}

@@ -1,24 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import {
+  BrowserRouter,
+  Router,
+  Route,
+  Routes,
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Home from "../src/pages/Home/Home.js";
+import About from "../src/pages/About/About.js";
+import Project from "../src/pages/Project/project.js";
+import Service from "../src/pages/Service/service.js";
+import Contact from "../src/pages/Contact Us/Contact.js";
+import { SwitchTransition, CSSTransition } from "react-transition-group";
+import { createContext, useEffect, useState } from "react";
 
+const router = createBrowserRouter([
+  {
+    path: "/Home",
+    element: <Home />,
+  },
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/About",
+    element: <About />,
+  },
+  {
+    path: "/Project",
+    element: <Project />,
+  },
+  {
+    path: "/Service",
+    element: <Service />,
+  },
+  {
+    path: "/ContactUs",
+    element: <Contact />,
+  },
+]);
+
+export const UserContext = createContext();
 function App() {
+ const [dark, setDark] = useState(localStorage.getItem('dark') || 'light');
+ window.localStorage.setItem('dark',dark)
+//  console.log(dark);
+// console.log(localStorage.getItem('dark') || 'light');
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <UserContext.Provider value={{ dark, setDark }}>
+        <RouterProvider router={router} />
+      </UserContext.Provider>
+    </>
   );
 }
 

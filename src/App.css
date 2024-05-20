@@ -1,38 +1,111 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.josefin-sans {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  /* font-weight: <weight>; */
+  font-style: normal;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.jost {
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  /* font-weight: <weight>; */
+  font-style: normal;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+#root {
+  min-height: 100dvh;
+  overflow-y: hidden;
+}
+
+/* img {
+  height: 100%;
+} */
+
+.bgImageDesktop {
+  background-image: url(./pages/Project/assests/luxury/bg-image.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.6);
+
+}
+
+.bgMobile {
+  background-image: url(./pages/Project//assests/luxury/luxury1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.6);
+  background-position: -3rem;
+}
+
+.visionBg {
+  background-image: url(./pages/About/assests/mobileVision.png);
+  background-repeat: no-repeat;
+  background-size: 100% ;
+  background-position-y: bottom;
+
+  @media screen and (min-width:640px) {
+    background-image: url(./pages/About/assests/vision-building.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  @media screen and (min-width:1280px) {
+    background-position-y: 17rem;
+  }
+
+  @media screen and (min-width:1440px) {
+    background-position-y: 12rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.desktopImage {
+  background-image: url(./pages//Project/assests/header/mobile1.png),
+    url(./pages//Project/assests/header/mobile2.png),
+    url(./pages//Project/assests/header/mobile3.png);
+  background-size: initial;
+  background-repeat: no-repeat;
+  height: 73vh;
+  background-position-x: 2px, 178px, 14px;
+  background-position-y: 117px, 33px, 26rem;
+
+  @media screen and (min-width:640px) {
+    background-image: url(./pages/Project/assests/header/left-top.png),
+      url(./pages/Project/assests/header/left-bot.png),
+      url(./pages/Project/assests/header/center.png),
+      url(./pages/Project/assests/header/right-top.png),
+      url(./pages/Project/assests/header/right.png),
+      url(./pages/Project/assests/header/right-bot.png);
+    background-repeat: no-repeat;
+    height: 80vh;
+    background-size: initial;
+    background-position-x: -34px, 0px, 3px, 41.3rem, 71rem, 25.5rem;
+    background-position-y: -100px, 26rem, -68px, -8.5rem, 12rem, 660px;
+  }
 }
 
-.App-link {
-  color: #61dafb;
+.fade-enter {
+  opacity: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.fade-exit {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-exit-active {
+  transition: opacity 500ms;
 }
