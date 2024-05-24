@@ -16,39 +16,40 @@ import { SwitchTransition, CSSTransition } from "react-transition-group";
 import { createContext, useEffect, useState } from "react";
 
 const router = createBrowserRouter([
+  { path: "*", element: <Home /> },
   {
-    path: "/Home",
+    path: "/home",
     element: <Home />,
   },
   {
-    path: "/",
+    path: '',
     element: <Home />,
   },
   {
-    path: "/About",
+    path: "/about",
     element: <About />,
   },
   {
-    path: "/Project",
+    path: "/project",
     element: <Project />,
   },
   {
-    path: "/Service",
+    path: "/service",
     element: <Service />,
   },
   {
-    path: "/ContactUs",
+    path: "/contact_Us",
     element: <Contact />,
   },
 ]);
 
 export const UserContext = createContext();
 function App() {
- const [dark, setDark] = useState(localStorage.getItem('dark') || 'light');
- window.localStorage.setItem('dark',dark)
-//  console.log(dark);
-// console.log(localStorage.getItem('dark') || 'light');
- 
+  const [dark, setDark] = useState(localStorage.getItem("dark") || "light");
+  window.localStorage.setItem("dark", dark);
+  //  console.log(dark);
+  // console.log(localStorage.getItem('dark') || 'light');
+
   return (
     <>
       <UserContext.Provider value={{ dark, setDark }}>

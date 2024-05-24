@@ -41,12 +41,17 @@
   background-size: cover;
   background-color: rgba(255, 255, 255, 0.6);
   background-position: -3rem;
+
+  @media screen and (min-width:640px) {
+    background-position: 0rem;
+    background-size: 100%;
+  }
 }
 
 .visionBg {
   background-image: url(./pages/About/assests/mobileVision.png);
   background-repeat: no-repeat;
-  background-size: 100% ;
+  background-size: 100%;
   background-position-y: bottom;
 
   @media screen and (min-width:640px) {
@@ -70,9 +75,10 @@
     url(./pages//Project/assests/header/mobile3.png);
   background-size: initial;
   background-repeat: no-repeat;
-  height: 73vh;
+  height: 85vh;
   background-position-x: 2px, 178px, 14px;
   background-position-y: 117px, 33px, 26rem;
+  width: 100%;
 
   @media screen and (min-width:640px) {
     background-image: url(./pages/Project/assests/header/left-top.png),
@@ -86,7 +92,53 @@
     background-size: initial;
     background-position-x: -34px, 0px, 3px, 41.3rem, 71rem, 25.5rem;
     background-position-y: -100px, 26rem, -68px, -8.5rem, 12rem, 660px;
+    width: 100%;
   }
+
+  @media screen and (min-width:1280px) {
+    height: 95vh;
+  }
+
+  @media screen and (min-width:1536px) {
+    background-image: url(./pages/Project/assests/header/left-top-1.png),
+      url(./pages/Project/assests/header/left-bot-1.png),
+      url(./pages/Project/assests/header/center-1.png),
+      url(./pages/Project/assests/header/right-top-1.png),
+      /* url(./pages/Project/assests/header/right-1.png), */
+      url(./pages/Project/assests/header/right-bot-1.png);
+    background-size: 90%;
+    background-position-x: -35rem, -70rem, 0rem, 55rem, 50rem;
+    background-position-y: -55rem, 18rem, 1rem, -35rem, 48rem;
+  }
+
+  @media screen and (min-width:1920px) {
+    background-image: url(./pages/Project/assests/header/left-top-1.png),
+      url(./pages/Project/assests/header/left-bot-1.png),
+      url(./pages/Project/assests/header/center-1.png),
+      url(./pages/Project/assests/header/right-top-1.png),
+      /* url(./pages/Project/assests/header/right-1.png), */
+      url(./pages/Project/assests/header/right-bot-1.png);
+    background-size: 90%;
+    height: 100vh;
+    background-position-x: -45rem, -70rem, 0rem, 70rem,  55rem;
+    background-position-y: -70rem, 40rem,-2rem, -47rem,  60rem;
+  }
+
+  /* @media screen and (min-width:1920px) {
+    background-image: url(./pages/Project/assests/header/left-top.png),
+      url(./pages/Project/assests/header/left-bot.png),
+      url(./pages/Project/assests/header/center.png),
+      url(./pages/Project/assests/header/right-top.png),
+      url(./pages/Project/assests/header/right.png),
+      url(./pages/Project/assests/header/right-bot.png);
+    background-repeat: no-repeat;
+    height: 80vh;
+    background-size: 60%;
+    /* background-position-x: -30px, 0rem, 15rem, 71rem, 100.8rem, 45rem;
+    background-position-y: -90px, 33rem, -60px, -15.5rem, 12rem, 45rem; */
+  /* background-position-x: -50px, 0rem, 15rem, 50rem, 95rem, 43rem;
+    background-position-y: -10rem, 20rem, 6rem, -20rem, -48rem, 60rem;
+  } */
 }
 
 .fade-enter {

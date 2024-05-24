@@ -56,15 +56,15 @@ function Reusable({ src, img1, img2, img3, img4, img5, h, p, mobileImg }) {
             <p className="text-3xl font-normal leading-8">{p}</p>
           </div>
         </div>
-        <div className="flex flex-row w-full items-center justify-center lg:gap-8 lg:pr-8  lg:pl-4  xl:gap-12 xl:pl-4 xl:pr-6 pt-8 pb-16 bg-secondary dark:bg-[#101827]">
-          <Frame location={img1} c={"lg:h-[335px] xl:h-[315px]  w-full"} />
-          <Frame location={img2} c={"lg:h-[335px] xl:h-[315px]  w-full"} />
+        <div className="flex flex-row w-full items-center justify-center lg:gap-8 lg:pr-8  lg:pl-4  xl:gap-12 xl:pl-4 xl:pr-6 pt-8 pb-16 bg-secondary dark:bg-[#101827] 2xl:pr-8">
+          <Frame location={img1} c={"lg:h-[335px] xl:h-[315px] min-[1920px]:h-[32rem]  w-full 2xl:h-[25rem]"} />
+          <Frame location={img2} c={"lg:h-[335px] xl:h-[315px] min-[1920px]:h-[32rem]  w-full 2xl:h-[25rem]"} />
           <Frame
             location={img3}
-            c={"lg:hidden xl:block w-full xl:h-[315px] "}
+            c={"lg:hidden xl:block w-full xl:h-[315px] min-[1920px]:h-[32rem] w-full 2xl:h-[25rem]"}
           />
-          <Frame location={img4} c={"lg:h-[335px] xl:h-[315px]  w-full"} />
-          <Frame location={img5} c={"lg:h-[335px] xl:h-[315px]  w-full"} />
+          <Frame location={img4} c={"lg:h-[335px] xl:h-[315px] min-[1920px]:h-[32rem]  w-full 2xl:h-[25rem]"} />
+          <Frame location={img5} c={"lg:h-[335px] xl:h-[315px] min-[1920px]:h-[32rem]  w-full 2xl:h-[25rem]"} />
         </div>
       </div>
       <div className="lg:hidden bg-secondary pb-8 dark:bg-inherit">
@@ -85,14 +85,14 @@ function Reusable({ src, img1, img2, img3, img4, img5, h, p, mobileImg }) {
 }
 function Head() {
   return (
-    <div className="w-full ">
+    <div className="w-full relative">
       <img src={head} className="min-[375px]:max-sm:hidden sm:block w-full" />
-      <div className="min-[375px]:hidden sm:block w-full dark:h-[874px] absolute top-[7.7rem] bg-gradient-to-r from-black to-transparent "></div>
+      <div className="min-[375px]:hidden sm:block w-full dark:h-full absolute top-0 bg-gradient-to-r from-black to-transparent "></div>
       <img
         src={mobileHead}
         className="min-[375px]:max-sm:block sm:hidden w-full  min-[375px]:-mt-4"
       />
-      <p className="min-[375px]:text-3xl lg:text-8xl min-[375px]:top-32  min-[375px]:left-0  min-[375px]:px-4  sm:text-5xl sm:top-2/4 sm:left-4 h-fit font-body uppercase bottom-0 absolute w-fit lg:left-16 xl:left-20 xl:px-20 lg:px-12 left-20 xl:top-[50%] tracking-normal text-shadow min-[375px]:font-shadow text-primary font-medium">
+      <p className="min-[375px]:text-3xl lg:text-8xl min-[375px]:top-16  min-[375px]:left-0  min-[375px]:px-4  sm:text-5xl sm:top-2/4 sm:left-4 h-fit font-body uppercase bottom-0 absolute w-fit lg:left-16 xl:left-20 xl:px-20 lg:px-12 left-20 xl:top-[50%] tracking-normal text-shadow min-[375px]:font-shadow text-primary font-medium">
         best <br className="min-[375px]:hidden lg:block" /> service <br /> for
         you
       </p>
@@ -155,28 +155,28 @@ function Construction() {
               c={"h-[17.5rem] min-[375px]:w-[19.5rem] min-[375px]:h-[17.5rem] md:w-[20rem]"}
             />
           </div>
-          <div className="sm:flex flex-row min-[1440px]:gap-20 sm:px-4 sm:gap-8 sm:pr-6 md:pr-4 md:gap-8 items-center lg:gap-12 justify-center 2xl:gap-16 min-[375px]:hidden">
-            <Frame
-              location={construction2}
-              c={
-                "sm:w-full sm:h-[250px] md:h-[300px] lg:max-2xl:w-[200px] lg:max-2xl:h-[280px] "
-              }
-            />
+          <div className="sm:flex flex-row min-[1440px]:gap-20 sm:px-4 sm:gap-8 sm:pr-6 md:pr-4 md:gap-8 items-center lg:gap-12 justify-center 2xl:gap-16 min-[375px]:hidden  min-[1920px]:justify-between w-full">
             <Frame
               location={construction1}
               c={
-                "sm:w-full sm:h-[250px] md:h-[300px] lg:max-2xl:w-[200px]  lg:max-2xl:h-[280px]"
+                "sm:w-full sm:h-[250px] md:h-[300px] lg:max-2xl:w-[200px]  lg:max-2xl:h-[280px] min-[1920px]:h-[25rem]  "
+              }
+            />
+            <Frame
+              location={construction2}
+              c={
+                "sm:w-full sm:h-[250px] md:h-[300px] lg:max-2xl:w-[200px]   lg:max-2xl:h-[280px] min-[1920px]:h-[25rem] "
               }
             />
             <Frame
               location={construction3}
               c={
-                "sm:w-full sm:h-[250px] md:h-[300px] lg:hidden xl:block lg:max-2xl:w-[200px] lg:max-2xl:h-[280px]"
+                "sm:w-full sm:h-[250px] md:h-[300px] lg:hidden xl:block lg:max-2xl:w-[200px]  lg:max-2xl:h-[280px] min-[1920px]:h-[25rem] "
               }
             />
           </div>
         </div>
-        <div className="min-[375px]:hidden  lg:block xl:w-2/5 h-[45rem] lg:px-4 lg:pr-8 xl:pl-0 xl:pr-12 xl:py-10 2xl:py-8 lg:py-16 flex items-center">
+        <div className="min-[375px]:hidden  lg:block xl:w-2/5 h-[45rem] lg:px-4 lg:pr-8 xl:pl-0 xl:pr-12 xl:py-10 2xl:py-8 lg:py-16 flex items-center min-[1920px]:p-0 min-[1920px]:px-10">
           <Frame location={constructionHead} c={"lg:w-full lg:h-full"} />
         </div>
       </div>

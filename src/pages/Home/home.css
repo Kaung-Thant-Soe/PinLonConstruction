@@ -1,12 +1,41 @@
 .text-shadow {
-	text-shadow: 4px 0 #fff, -4px 0 #fff, 0 4px #fff, 0 -4px #fff,
-		2px 2px #fff, -2px -2px #fff, 2px -2px #fff, -2px 2px #fff;
+	text-shadow: 3px 0px #fff,
+		-3px 0 #fff,
+		-3px 3px #fff,
+		1px 3px #fff,
+		-3px -2px #fff,
+		0px -3px #fff,
+		-1px -0px #fff,
+		-0px 0px #fff;
+
+	@media screen and(min-width:'640px') {
+		text-shadow: 4px 0 #fff, -4px 0 #fff, 0 4px #fff, 0 -4px #fff,
+			2px 2px #fff, -2px -2px #fff, 2px -2px #fff, -2px 2px #fff;
+	}
+
+	/* @media (prefers-color-scheme: dark) {
+		text-shadow: 3px 0px #e90c0c,
+			-3px 0 #f10909,
+			-3px 3px #d10808,
+			1px 3px #d10808,
+			-3px -2px #d10808,
+			0px -3px #d10808,
+			-1px -0px #d10808
+	} */
+
+	/* @media (prefers-color-scheme: light) {
+		text-shadow: 3px 0px #fff,
+			-3px 0 #fff,
+			-3px 3px #fff,
+			1px 3px #fff,
+			-3px -2px #fff,
+			0px -3px #fff,
+			-1px -0px #fff,
+			-0px 0px #fff
+	} */
 }
 
-.outerTextShadow {
-	text-shadow: 4px 0 #fff, -4px 0 #fff, 0 4px #fff, 0 -4px #fff,
-		2px 2px #fff, -2px -2px #fff, 2px -2px #fff, -2px 2px #fff;
-}
+
 
 img {
 	box-shadow: none;

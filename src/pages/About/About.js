@@ -13,18 +13,25 @@ import SecondFooter from "../../footer/second-footer";
 import mobileVision from "../About/assests/mobileVision.png";
 import { UserContext } from "../../App";
 import { useContext } from "react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 function About() {
-  const {dark,setDark} = useContext(UserContext);
+  const { dark, setDark } = useContext(UserContext);
   return (
     <>
       <Nav />
-      <div className={dark === 'dark'  ? "dark" : ""}>
-        <div>
-          <h1 className="absolute text-6xl lg:text-8xl font-medium uppercase translate-y-full lg:mt-[20%] text-primary ml-28 min-[375px]:text-4xl min-[375px]:ml-16 z-10 dark:text-neutralWhite">
+      <div className={dark === "dark" ? "dark" : ""}>
+        <div className="min-w-full relative">
+          <h1 className="absolute text-6xl lg:text-8xl font-medium uppercase translate-y-full lg:mt-[5%] text-primary left-[10rem] min-[375px]:text-4xl min-[375px]:ml-0 sm:top-36 sm:text-5xl z-10 dark:text-neutralWhite ">
             About Us
           </h1>
-          <img src={about} alt="About Us Page Building" className="dark:brightness-50" />
+          <img
+            src={about}
+            alt="About Us Page Building"
+            className="dark:brightness-50 w-full"
+          />
         </div>
         <OurMission />
         <OurVision />
@@ -57,7 +64,7 @@ export function Frame({
         onClick={handleMouseMove}
       >
         <p
-          className={`${seen ? "visible " : "invisible"} font-body  text-wrap w-full h-full absolute inline-flex flex-col font-medium items-center justify-center text-xl min-[375px]:text-lg min-[375px]:font-normal leading-8 z-50 ${isLetter ?'block':'hidden'}`}
+          className={`${seen ? "visible " : "invisible"} font-body  text-wrap w-full h-full absolute inline-flex flex-col font-medium items-center justify-center text-xl min-[375px]:text-lg min-[375px]:font-normal leading-8 z-50 ${isLetter ? "block" : "hidden"}`}
         >
           Location -No(64),
           <br /> 133rd Street,
@@ -72,12 +79,12 @@ export function Frame({
         <img
           src={location}
           alt="building"
-          className={`${c} ${seen ? "blur-md " : ""}  w-[${w}] h-[${h}]  mt-4 ml-4 ${mobile ? "hidden" : "block"}`}
+          className={`${c} ${seen && isLetter ? "blur-md " : ""}   mt-4 ml-4 ${mobile ? "hidden h-0" : "block "}`}
         />
         <img
           src={mobileLocation}
           alt="building"
-          className={` w-full h-[${h}]  mt-4 ml-4 ${mobile ? `block h-full` : "hidden"}`}
+          className={` w-full   mt-4 ml-4 ${mobile ? `block h-full` : "hidden h-0"}`}
         />
       </div>
     </div>
@@ -146,65 +153,106 @@ function OurVision() {
   );
 }
 function OurProject() {
+  var settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   return (
-    <div className="lg:py-4 xl:p-6 overflow-hidden bg-secondary pb-10 dark:bg-[#0A0B14]">
-      <div className="w-full text-center font-header font-medium text-primary dark:text-neutralWhite mt-12">
+    <div className="lg:py-4 xl:p-6 overflow-hidden bg-secondary pb-10 dark:bg-[#0A0B14] px-4">
+      <div className="w-full text-center font-header font-medium text-primary dark:text-neutralWhite py-6 mt-12">
         <h2 className="min-[375px]:max-lg:text-2xl lg:text-3xl">
           Our Completed Projects
         </h2>
         <h4 className="text-xl xl:text-2xl mt-3">Let us create your idea.</h4>
       </div>
-      <div className="flex flex-row justify-between gap-12 xl:gap-16 min-[375px]:max-md:gap-12 w-full  min-[375px]:h-full min-[375px]:py-12 px-6 xl:px-4  whitespace-nowrap overflow-auto min-[375px]:max-md:px-12 lg:gap-12">
-        <Frame
-          location={building1}
-          c={
-            "min-[375px]:max-sm:min-w-[50svw] w-full min-[375px]:h-[17rem] md:min-w-[26svw] md:h-[315px] sm:h-[350px] md:h-[315px]  lg:h-[25.5rem] xl:h-[31rem] sm:max-md:min-w-[40svw] "
-          }
-          w={"100%"}
-          h={"100%"}
-          isLetter={true}
-        />
+      {/* <div className="flex flex-row justify-between gap-12 xl:gap-16 min-[375px]:max-md:gap-12 w-full  min-[375px]:h-full min-[375px]:py-12 px-6 xl:px-4  whitespace-nowrap overflow-auto min-[375px]:max-md:px-12 lg:gap-12"> */}
+      <Slider {...settings}>
+        <div className="px-6 min-[375px]:h-[25rem] sm:h-[15rem] md:h-[17rem] xl:h-[24rem] 2xl:h-[28rem] min-[1920px]:h-[34rem]">
+          <Frame
+            location={building1}
+            c={"w-full h-full"}
+            // c={
+            //   "min-[375px]:max-sm:min-w-[50svw] w-full min-[375px]:h-[17rem] md:min-w-[26svw] md:h-[315px] sm:h-[350px] md:h-[315px]  lg:h-[25.5rem] xl:h-[31rem] sm:max-md:min-w-[40svw] "
+            // }
+            isLetter={true}
+          />
+        </div>
 
-        <Frame
-          location={building2}
-          c={
-            "min-[375px]:max-sm:min-w-[50svw] min-[375px]:h-[17rem] sm:h-[350px] md:min-w-[26svw] md:h-[315px] lg:h-[25.5rem] xl:h-[31rem] sm:max-md:min-w-[40svw] "
-          }
-          w={"100%"}
-          h={"100%"}
-          isLetter={true}
-        />
+        <div className="px-6 min-[375px]:h-[25rem] sm:h-[15rem] md:h-[17rem] xl:h-[24rem] 2xl:h-[28rem] min-[1920px]:h-[34rem]">
+          <Frame
+            location={building2}
+            c={"w-full h-full"}
+            // c={
+            //   "min-[375px]:max-sm:min-w-[50svw] min-[375px]:h-[17rem] sm:h-[350px] md:min-w-[26svw] md:h-[315px] lg:h-[25.5rem] xl:h-[31rem] sm:max-md:min-w-[40svw] "
+            // }
+            isLetter={true}
+          />
+        </div>
 
-        <Frame
-          location={building3}
-          c={
-            "min-[375px]:max-sm:min-w-[50svw] min-[375px]:h-[17rem] md:min-w-[26svw] sm:h-[350px]  md:h-[315px] lg:h-[25.5rem] xl:h-[31rem] sm:max-md:min-w-[40svw] "
-          }
-          w={"100%"}
-          h={"100%"}
-          isLetter={true}
-        />
+        <div className="px-6 min-[375px]:h-[25rem] sm:h-[15rem] md:h-[17rem] xl:h-[24rem] 2xl:h-[28rem] min-[1920px]:h-[34rem]">
+          <Frame
+            location={building3}
+            c={"w-full h-full"}
+            // c={
+            //   "min-[375px]:max-sm:min-w-[50svw] min-[375px]:h-[17rem] md:min-w-[26svw] sm:h-[350px]  md:h-[315px] lg:h-[25.5rem] xl:h-[31rem] sm:max-md:min-w-[40svw] "
+            // }
+            isLetter={true}
+          />
+        </div>
 
-        <Frame
-          location={building4}
-          c={
-            "min-[375px]:max-sm:min-w-[50svw] min-[375px]:h-[17rem] md:min-w-[26svw] sm:h-[350px] md:h-[315px] lg:h-[25.5rem] xl:h-[31rem] sm:max-md:min-w-[40svw] "
-          }
-          w={"100%"}
-          h={"100%"}
-          isLetter={true}
-        />
+        <div className="px-6 min-[375px]:h-[25rem] sm:h-[15rem] md:h-[17rem] xl:h-[24rem] 2xl:h-[28rem] min-[1920px]:h-[34rem]">
+          <Frame
+            location={building4}
+            c={"w-full h-full"}
+            // c={
+            //   "min-[375px]:max-sm:min-w-[50svw] min-[375px]:h-[17rem] md:min-w-[26svw] sm:h-[350px] md:h-[315px] lg:h-[25.5rem] xl:h-[31rem] sm:max-md:min-w-[40svw] "
+            // }
+            isLetter={true}
+          />
+        </div>
 
-        <Frame
-          location={building5}
-          c={
-            "min-[375px]:max-sm:min-w-[50svw] min-[375px]:h-[17rem] md:min-w-[26svw] sm:h-[350px] md:w-[27svw] md:h-[315px] lg:h-[25.5rem] xl:h-[31rem] sm:max-md:min-w-[40svw] "
-          }
-          w={"100%"}
-          isLetter={true}
-          h={"100%"}
-        />
-      </div>
+        <div className="px-6 min-[375px]:h-[25rem] sm:h-[15rem] md:h-[17rem] xl:h-[24rem] 2xl:h-[28rem] min-[1920px]:h-[34rem]">
+          <Frame
+            location={building5}
+            c={"w-full h-full"}
+            // c={
+            //   "min-[375px]:max-sm:min-w-[50svw] min-[375px]:h-[17rem] md:min-w-[26svw] sm:h-[350px] md:w-[27svw] md:h-[315px] lg:h-[25.5rem] xl:h-[31rem] sm:max-md:min-w-[40svw] "
+            // }
+            isLetter={true}
+          />
+        </div>
+      </Slider>
+      {/* </div> */}
     </div>
   );
 }

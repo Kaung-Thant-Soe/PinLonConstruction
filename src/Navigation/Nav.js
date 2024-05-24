@@ -1,15 +1,22 @@
 import "./nav.css";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import logo from "../Navigation/logo.png";
 import stair from "../Navigation/stairIcon.png";
 import Mobilelogo from "../Navigation/Mobile-logo.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, resolvePath, useParams } from "react-router-dom";
 import { UserContext } from "../App";
-
+import { useLocation } from "react-router-dom";
 function Nav() {
   const { dark, setDark } = useContext(UserContext);
-  const navList = ["Home", "About", "Project", "Service", "ContactUs"];
+  const navList = [
+    { navName: "Home", value: "home" },
+    { navName: "About", value: "about" },
+    { navName: "Project", value: "project" },
+    { navName: "Service", value: "service" },
+    { navName: "Contact Us", value: "contact_us" },
+  ];
   const [isClick, setIsClick] = useState(false);
+  const path = useLocation().pathname;
   const [isBtn, setIsBtn] = useState("");
   // window.localStorage.setItem("dark", dark);
   // const mode = window.localStorage.getItem("dark");
@@ -22,6 +29,31 @@ function Nav() {
       setDark("light");
     }
   }
+
+  // useEffect(() => {
+  //   if (path === "/") {
+  //     setIsBtn("home");
+  // console.log(isBtn);
+  // }
+  // console.log(path);
+  //   console.log(isBtn);
+  // });
+  // setTimeout(() => {
+  //   setIsBtn((isBtn) => 'home');
+  // }, 3000);
+  // console.log(isBtn);
+
+  // function handleBtn(e) {
+  //   console.log(e.target.path);
+
+  // }
+  // console.log(isBtn);
+  useEffect(() => {
+    if (path === "/") {
+      setIsBtn(() => "home");
+    }
+  }, []);
+  // function handlebtn(item) {}
   return (
     <>
       <nav className="dark:bg-chip min-[375px]:py-4 sm:py-8 bg-primary">
@@ -43,22 +75,24 @@ function Nav() {
               {navList.map((item, index) => (
                 <li
                   key={index}
-                  onClick={() => setIsBtn(item)}
                   className={
-                    isBtn === item
+                    path === `/${item.value}` || isBtn === `${item.value}`
                       ? "border-chip border-2  text-center list-none h-[3.5rem]"
                       : `list-none`
                   }
                 >
+                  {/* {console.log(isBtn === "" ? item : isBtn)} */}
                   <NavLink
-                    to={`/${item}`}
-                    className={({ isActive }) => {
-                      return isActive
+                    to={`/${item.value}`}
+                    className={
+                      path === `/${item.value}` || isBtn === `${item.value}`
                         ? "bg-chip mt-2 block ml-2 px-2 py-[10px] w-full h-full"
-                        : "";
-                    }}
+                        : ""
+                    }
+                    // onClick={handlebtn(item)}
                   >
-                    {item}
+                    {/* {console.log(isBtn)} */}
+                    {item.navName}
                   </NavLink>
                 </li>
               ))}
@@ -69,12 +103,13 @@ function Nav() {
                       ? "bg-neutralWhite p-2 text-black"
                       : "bg-black p-2"
                   }
-                  onClick={handleMode}
+                  // onClick={handleMode}
                 >
                   {dark === "dark" ? "Light Mode" : "Dark Mode"}
                 </button>
               </div>
             </div>
+            {/* Mobile Nav */}
             <div className="md:hidden text-neutralWhite min-[375px]:block ">
               <div
                 className={`border-chip border-2 h-[2.8rem] ${isClick ? " border-none mr-1" : "mr-2"}`}
@@ -91,7 +126,7 @@ function Nav() {
                   />
                 </button>
               </div>
-              <div className="absolute right-1 sm:right-[7.3rem] z-10">
+              <div className="absolute right-1 sm:right-[6.8rem] z-10">
                 {navList.map((item, index) => (
                   <div
                     key={index}
@@ -99,15 +134,15 @@ function Nav() {
                     align-middle w-full h-[40px] mt-[1px] text-center bg-primary   md:hidden`}
                   >
                     <NavLink
-                      to={`/${item}`}
-                      className={({ isActive }) => {
-                        "px-3 py-2";
-                        return isActive
+                      to={`/${item.value}`}
+                      className={
+                        path === `/${item.value}` || isBtn === `${item.value}`
                           ? " bg-chip align-middle pt-2 w-full h-full block"
-                          : "align-middle ";
-                      }}
+                          : "align-middle "
+                      }
+                      // onClick={handlebtn(item)}
                     >
-                      {item}
+                      {item.navName}
                     </NavLink>
                   </div>
                 ))}

@@ -38,23 +38,26 @@ import { Frame } from "../About/About";
 import vector from "./assests/downarrow vector.png";
 import { useState } from "react";
 import Footer from "../../footer/second-footer";
-import bgImage from "../../pages/Project/assests/luxury/bg-image.png";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+// import bgImage from "../../pages/Project/assests/luxury/bg-image.png";
 
-import center from "./assests/header/center.png";
-import leftTop from "./assests/header/left-top.png";
-import leftBot from "./assests/header/left-bot.png";
-import rightTop from "./assests/header/right-top.png";
-import right from "./assests/header/right.png";
-import rightBot from "./assests/header/right-bot.png";
+// import center from "./assests/header/center.png";
+// import leftTop from "./assests/header/left-top.png";
+// import leftBot from "./assests/header/left-bot.png";
+// import rightTop from "./assests/header/right-top.png";
+// import right from "./assests/header/right.png";
+// import rightBot from "./assests/header/right-bot.png";
 
-import mobile1 from "./assests/header/mobile1.png";
-import mobile2 from "./assests/header/mobile2.png";
-import mobile3 from "./assests/header/mobile3.png";
+// import mobile1 from "./assests/header/mobile1.png";
+// import mobile2 from "./assests/header/mobile2.png";
+// import mobile3 from "./assests/header/mobile3.png";
 import { UserContext } from "../../App";
 import { useContext } from "react";
 
 function Project() {
-  const {dark,setDark} = useContext(UserContext);
+  const { dark, setDark } = useContext(UserContext);
   const isMobile = window.innerWidth < 1025;
   const condo = [
     { src: condo1, title: "condo", buildingName: "44TH STREET" },
@@ -113,37 +116,35 @@ function Project() {
     { src: popular8, title: "popular", buildingName: "MYINTAWTHAR" },
   ];
   function Head() {
-    const mobileImage = {
-      backgroundImage: `url(${mobile1}),url(${mobile2}),url(${mobile3})`,
-      backgroundSize: "initial",
-      backgroundRepeat: " no-repeat",
-      height: "73vh",
-      backgroundPosition: " 2px 117px, 178px 33px, 14px 26rem",
-    };
-    const image = {
-      backgroundImage: `url(${leftTop}),url(${leftBot}),url(${center}),url(${rightTop}),url(${right}),url(${rightBot})`,
-      backgroundRepeat: "no-repeat",
-      height: "120vh",
-      backgroundSize: "initial",
-      backgroundPosition:
-        "-34px -100px, 0px  26rem, 3px -68px, 41.3rem -8.5rem, 71rem 12rem, 25.5rem  660px",
-    };
+    // const mobileImage = {
+    //   backgroundImage: `url(${mobile1}),url(${mobile2}),url(${mobile3})`,
+    //   backgroundSize: "initial",
+    //   backgroundRepeat: " no-repeat",
+    //   height: "73vh",
+    //   backgroundPosition: " 2px 117px, 178px 33px, 14px 26rem",
+    // };
+    // const image = {
+    //   backgroundImage: `url(${leftTop}),url(${leftBot}),url(${center}),url(${rightTop}),url(${right}),url(${rightBot})`,
+    //   backgroundRepeat: "no-repeat",
+    //   height: "120vh",
+    //   backgroundSize: "initial",
+    //   backgroundPosition:
+    //     "-34px -100px, 0px  26rem, 3px -68px, 41.3rem -8.5rem, 71rem 12rem, 25.5rem  660px",
+    // };
     return (
       <>
-        <div className="dark:bg-black  desktopImage">
-          <div className="min-[375px]:max-sm:translate-x-3  min-[375px]:max-sm:translate-y-3 translate-y-52 text-primary w-fit font-header translate-x-80 ">
-            <h1 className="min-[375px]:max-md:text-5xl text-6xl mb-2 uppercase font-semibold tracking-wider text-shadow ">
+        <div className="dark:bg-black desktopImage ">
+          <div className="min-[375px]:max-sm:translate-x-3  min-[375px]:max-sm:translate-y-3 translate-y-52 text-primary  font-header translate-x-80 2xl:translate-x-96 w-full h-full 2xl:translate-y-80">
+            <h1 className="min-[375px]:max-md:text-5xl text-6xl mb-2 uppercase font-semibold tracking-wider text-shadow 2xl:text-8xl ">
               Project
             </h1>
-            <p className="text-2xl dark:text-neutralWhite ">
-              Just find your place
-            </p>
+            <p className="text-2xl 2xl:text-4xl text-primary">Just find your place</p>
           </div>
         </div>
       </>
     );
   }
-  function  BuildingBtn() {
+  function BuildingBtn() {
     const [mobile, setMobile] = useState(false);
     const [bname, setBname] = useState("All");
     const btnName = ["Condo", "Office", "Luxury", "Popular"];
@@ -265,7 +266,7 @@ function Project() {
   return (
     <>
       <Nav />
-      <div className={dark === 'dark'  ? "dark" : ""}>
+      <div className={dark === "dark" ? "dark" : ""}>
         <Head />
         <BuildingBtn />
         <Footer />
@@ -278,16 +279,16 @@ function Project() {
         <h2 className="uppercase  text-5xl text-primary ml-32 pt-20 dark:text-neutralWhite">
           {building[0].title}
         </h2>
-        <div className="flex flex-row items-center justify-center gap-20 mt-20">
+        <div className="flex flex-row items-center justify-center gap-20 min-[1920px]:gap-48 mt-20">
           <div className="flex flex-col items-center justify-center gap-12">
             <div className="flex flex-col items-center">
-              <Frame location={building[0].src} isLetter={true}/>
+              <Frame location={building[0].src} isLetter={true} />
               <p className="mt-10  text-primary max-w-52 text-center border-[1px] py-3 px-10 ml-6 border-black  dark:text-neutralWhite dark:bg-primary">
                 {building[0].buildingName}
               </p>
             </div>
             <div className="flex flex-col items-center">
-              <Frame location={building[4].src} isLetter={true}/>
+              <Frame location={building[4].src} isLetter={true} />
               <p className="mt-10  border-[1px] py-3 px-10 ml-6 border-black  text-primary max-w-52 text-center dark:text-neutralWhite dark:bg-primary">
                 {" "}
                 {building[4].buildingName}
@@ -297,13 +298,13 @@ function Project() {
 
           <div className="flex flex-col items-center justify-center gap-12 pb-52">
             <div className="flex flex-col items-center">
-              <Frame location={building[1].src} isLetter={true}/>
+              <Frame location={building[1].src} isLetter={true} />
               <p className="mt-10  border-[1px] py-3 px-6 tracking-wider font-medium ml-6 border-black  text-primary max-w-52 text-center dark:text-neutralWhite dark:bg-primary">
                 {building[1].buildingName}
               </p>
             </div>
             <div className="flex flex-col items-center">
-              <Frame location={building[5].src} isLetter={true}/>
+              <Frame location={building[5].src} isLetter={true} />
               <p className="mt-10  border-[1px] py-3 px-6 tracking-wider font-medium ml-6 border-black  text-primary max-w-52 text-center dark:text-neutralWhite dark:bg-primary">
                 {building[5].buildingName}
               </p>
@@ -312,13 +313,13 @@ function Project() {
 
           <div className="flex flex-col items-center justify-center gap-12">
             <div className="flex flex-col items-center">
-              <Frame location={building[2].src} isLetter={true}/>
+              <Frame location={building[2].src} isLetter={true} />
               <p className="mt-10  border-[1px] py-3 px-6 tracking-wider font-medium ml-6 border-black  text-primary max-w-52 text-center dark:text-neutralWhite dark:bg-primary">
                 {building[2].buildingName}
               </p>
             </div>
             <div className="flex flex-col items-center">
-              <Frame location={building[6].src} isLetter={true}/>
+              <Frame location={building[6].src} isLetter={true} />
               <p className="mt-10  border-[1px] py-3 px-6 tracking-wider font-medium ml-6 border-black  text-primary max-w-52 text-center dark:text-neutralWhite dark:bg-primary">
                 {building[6].buildingName}
               </p>
@@ -327,14 +328,14 @@ function Project() {
 
           <div className="flex flex-col items-center justify-center gap-12 pb-52 ">
             <div className="flex flex-col items-center">
-              <Frame location={building[3].src} isLetter={true}/>
+              <Frame location={building[3].src} isLetter={true} />
               <p className="mt-10  border-[1px] py-3 px-6 tracking-wider font-medium ml-6 border-black  text-primary max-w-52 text-center dark:text-neutralWhite dark:bg-primary">
                 {" "}
                 {building[3].buildingName}{" "}
               </p>
             </div>
             <div className="flex flex-col items-center">
-              <Frame location={building[7].src} isLetter={true}/>
+              <Frame location={building[7].src} isLetter={true} />
               <p className="mt-10  border-[1px] py-3 px-6 tracking-wider font-medium ml-6 border-black  text-primary max-w-52 text-center dark:text-neutralWhite dark:bg-primary">
                 {building[7].buildingName}
               </p>
@@ -345,23 +346,63 @@ function Project() {
     );
   }
   function MobileBuilding({ building }) {
+    var settings = {
+      dots: false,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      initialSlide: 0,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: false,
+          },
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ],
+    };
     const condoList = building.map((item, index) => (
-      <div className="flex flex-col items-center" key={index}>
-        <Frame location={item.src} isLetter={true}/>
-        <p className="border-[1px] border-black mt-10  w-fit text-lg px-6 tracking-wider font-medium py-2 ml-4 text-primary max-w-52 text-center dark:text-neutralWhite dark:bg-primary">
-          {item.buildingName}
-        </p>
+      <div key={index} className="min-[375px]:pb-36 ">
+        <div className="w-full px-6 min-[375px]:h-[25rem] sm:h-[15rem] lg:h-[19rem] ">
+          <Frame location={item.src} isLetter={true} c={"w-full h-full"} />
+          <div className="w-full text-center py-4 min-[375px]:py-8 px-12 sm:px-0 lg:py-6 h-[10rem]">
+            <p className="border-[1px] border-black text-lg px-1 lg:px-6 tracking-wider font-medium py-4 text-primary text-center dark:text-neutralWhite dark:bg-primary">
+              {item.buildingName}
+            </p>
+          </div>
+        </div>
       </div>
     ));
     return (
-      <>
-        <h2 className="uppercase text-5xl text-primary  pt-20 text-center dark:text-neutralWhite">
+      <div className="px-4 py-8">
+        <h2 className="uppercase text-5xl text-primary  py-16 text-center dark:text-neutralWhite">
           {building[0].title}
         </h2>
-        <div className="flex flex-row overflow-auto gap-20 px-8 py-12 ">
+        <Slider {...settings}>
+          {/* <div className=""> */}
           {condoList}
-        </div>
-      </>
+          {/* </div> */}
+        </Slider>
+      </div>
     );
   }
 }
