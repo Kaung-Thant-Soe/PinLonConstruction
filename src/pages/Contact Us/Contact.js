@@ -34,7 +34,7 @@ function Head() {
           className="sm:hidden w-full -mt-[1px] -z-10 border-primary"
         />
       </div>
-      <div className="absolute min-[375px]:flex top-12  flex-col  justify-center left-8 min-[375px]:gap-44 sm:gap-8  min-[375px]:w-fit  sm:top-56 md:top-78 lg:top-[23rem] xl:top-2/3 sm:left-16 xl:left-36 font-header h-fit min-[375px]:top-[30%]">
+      <div className="absolute min-[375px]:flex top-12  flex-col  justify-center left-8 min-[375px]:gap-44 sm:gap-8  min-[375px]:w-fit  sm:top-56 md:top-78 lg:top-[23rem] xl:top-2/3 sm:left-16 xl:left-36 font-header h-fit min-[375px]:top-16">
         <h1 className="min-[375px]:text-4xl sm:text-6xl  lg:text-7xl 2xl:text-9xl text-primary font-normal uppercase tracking-wider text-shadow ">
           Contact us
         </h1>

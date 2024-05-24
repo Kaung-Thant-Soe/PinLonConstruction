@@ -49,7 +49,7 @@ function App() {
   window.localStorage.setItem("dark", dark);
   //  console.log(dark);
   // console.log(localStorage.getItem('dark') || 'light');
-
+  // console.log(window.localStorage.getItem('dark'));
   return (
     <>
       <UserContext.Provider value={{ dark, setDark }}>

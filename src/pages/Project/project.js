@@ -134,11 +134,13 @@ function Project() {
     return (
       <>
         <div className="dark:bg-black desktopImage ">
-          <div className="min-[375px]:max-sm:translate-x-3  min-[375px]:max-sm:translate-y-3 translate-y-52 text-primary  font-header translate-x-80 2xl:translate-x-96 w-full h-full 2xl:translate-y-80">
+          <div className="min-[375px]:max-sm:translate-x-3  min-[375px]:max-sm:translate-y-3 translate-y-52 text-primary  font-header translate-x-80 2xl:translate-x-96 min-[1920px]:ml-40 w-full h-full 2xl:translate-y-96">
             <h1 className="min-[375px]:max-md:text-5xl text-6xl mb-2 uppercase font-semibold tracking-wider text-shadow 2xl:text-8xl ">
               Project
             </h1>
-            <p className="text-2xl 2xl:text-4xl text-primary">Just find your place</p>
+            <p className="text-2xl 2xl:text-4xl text-primary min-[375px]:text-neutralWhite">
+              Just find your place
+            </p>
           </div>
         </div>
       </>
@@ -265,7 +267,7 @@ function Project() {
   }
   return (
     <>
-      <Nav />
+        <Nav />
       <div className={dark === "dark" ? "dark" : ""}>
         <Head />
         <BuildingBtn />
@@ -348,7 +350,7 @@ function Project() {
   function MobileBuilding({ building }) {
     var settings = {
       dots: false,
-      infinite: false,
+      infinite: true,
       speed: 500,
       slidesToShow: 4,
       slidesToScroll: 4,

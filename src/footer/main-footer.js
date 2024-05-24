@@ -167,7 +167,7 @@ function FirstFooter() {
           </div>
         </div>
       </div>
-      <div className="py-6 text-center sm:text-xl min-[375px]:text-sm lg:text-3xl text-primary font-header dark:bg-black bg-secondary">
+      <div className="py-6 text-center sm:text-xl min-[375px]:text-sm lg:text-3xl text-primary font-header dark:bg-black dark:text-secondary bg-secondary">
         <p>Copyright @ Green Lotus Eatery I Design By Webloom</p>
       </div>
     </>

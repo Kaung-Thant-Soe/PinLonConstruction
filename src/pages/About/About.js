@@ -24,7 +24,7 @@ function About() {
       <Nav />
       <div className={dark === "dark" ? "dark" : ""}>
         <div className="min-w-full relative">
-          <h1 className="absolute text-6xl lg:text-8xl font-medium uppercase translate-y-full lg:mt-[5%] text-primary left-[10rem] min-[375px]:text-4xl min-[375px]:ml-0 sm:top-36 sm:text-5xl z-10 dark:text-neutralWhite ">
+          <h1 className="absolute text-6xl lg:text-8xl font-medium uppercase translate-y-full lg:mt-[5%] text-primary left-[10rem] min-[375px]:text-4xl min-[375px]:ml-0 sm:top-36 sm:text-5xl z-10 dark:text-neutralWhite min-[375px]:max-sm:left-6">
             About Us
           </h1>
           <img
@@ -155,7 +155,7 @@ function OurVision() {
 function OurProject() {
   var settings = {
     dots: false,
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 4,

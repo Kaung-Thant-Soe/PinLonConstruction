@@ -56,7 +56,7 @@ function Nav() {
   // function handlebtn(item) {}
   return (
     <>
-      <nav className="dark:bg-chip min-[375px]:py-4 sm:py-8 bg-primary">
+      <nav className="dark:bg-[#101827]  min-[375px]:py-4 sm:py-8 bg-primary">
         <div className="flex items-center text-primary min-[375px]:justify-between sm:justify-center sm:gap-[16.5rem] md:gap-20 xl:gap-32  ps-1">
           <NavLink to="/home" className="h-20 sm:h-12 flex items-center ">
             <img
@@ -103,7 +103,7 @@ function Nav() {
                       ? "bg-neutralWhite p-2 text-black"
                       : "bg-black p-2"
                   }
-                  // onClick={handleMode}
+                  onClick={handleMode}
                 >
                   {dark === "dark" ? "Light Mode" : "Dark Mode"}
                 </button>
@@ -115,7 +115,7 @@ function Nav() {
                 className={`border-chip border-2 h-[2.8rem] ${isClick ? " border-none mr-1" : "mr-2"}`}
               >
                 <button
-                  className={`flex items-center w-full justify-center  h-full gap-4 bg-chip  ${isClick ? "m-0 px-5" : " mt-1 px-2 ml-1"}`}
+                  className={`flex items-center w-full justify-center  h-full gap-4 bg-chip  ${isClick ? "m-0 px-[1.3rem]" : " mt-1 px-2 ml-1"}`}
                   onClick={() => setIsClick(!isClick)}
                 >
                   <p>Menu</p>{" "}
@@ -126,7 +126,7 @@ function Nav() {
                   />
                 </button>
               </div>
-              <div className="absolute right-1 sm:right-[6.8rem] z-10">
+              <div className="absolute right-1 sm:right-[6.75rem] z-10">
                 {navList.map((item, index) => (
                   <div
                     key={index}

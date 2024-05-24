@@ -52,7 +52,7 @@ function HomeHead() {
         alt="mobile home page"
         className="sm:hidden w-full dark:brightness-50"
       />
-      <p className="absolute sm:top-[40%] uppercase sm:text-5xl sm:left-16  lg:text-8xl xl:text-9xl text-primary font-normal lg:left-28  min-[375px]:top-12 min-[375px]:left-8 min-[375px]:text-4xl tracking-wider dark:text-neutralWhite text-shadow ">
+      <p className="absolute sm:top-[40%] uppercase sm:text-5xl sm:left-16  lg:text-8xl 2xl:9xl text-primary font-normal lg:left-28  min-[375px]:top-12 min-[375px]:left-8 min-[375px]:text-4xl tracking-wider dark:text-neutralWhite text-shadow ">
         Discover A<br /> unique
         <br className="min-[375px]:hidden sm:block" /> combo
       </p>
@@ -165,7 +165,7 @@ function OurProject() {
           </Slider>
         </div>
         <div className="flex justify-center mt-6">
-          <div className="text-center  font-body border-2 border-black ">
+          <div className="text-center  font-body border-2 border-black dark:border-secondary ">
             <button className="bg-chip  mt-1 text-xl ml-1 py-3 px-3 h-full w-full min-[1920px]:text-3xl text-neutralWhite">
               <Link to="/project">View All Products</Link>
             </button>
@@ -238,10 +238,12 @@ function Feedback() {
               <p className="text-2xl text-white">Business Owner</p>
             </div>
           </div>
-          <p className="w-fit whitespace-normal border-[1px] border-black p-3 mt-6 bg-neutralWhite text-primary text-lg   dark:text-neutralWhite dark:bg-primary">
-            The price is reasonable and the design is cute. Their service is
-            excellent.
-          </p>{" "}
+          <div className="w-full lg:px-8 xl:px-0 min-[1920px]:px-8 mt-12">
+            <p className="w-fit whitespace-normal border-[1px] border-black p-3  bg-neutralWhite text-primary text-lg   dark:text-neutralWhite dark:bg-primary">
+              The price is reasonable and the design is cute. Their service is
+              excellent.
+            </p>{" "}
+          </div>
         </div>
         <div className="min-[375px]:max-sm:min-w-[80svw] min-[375px]:px-6 sm:w-1/2 sm:px-4 md:px-8 sm:py-4  lg:px-12 flex flex-col items-center lg:bg-secondary dark:bg-[#1a2e42] xl:px-8 xl:mb-32 float-end">
           <div className="relative z-0">
@@ -259,10 +261,13 @@ function Feedback() {
               <p className="text-2xl text-white">Studio Owner</p>
             </div>
           </div>
-          <p className="w-fit whitespace-normal border-[1px] border-black p-3 mt-6 bg-neutralWhite text-primary text-lg  dark:text-neutralWhite dark:bg-primary">
-            The price is reasonable and the design is cute. Their service is
-            excellent.
-          </p>{" "}
+          <div className="w-full lg:px-8 xl:px-0 min-[1920px]:px-8 mt-12">
+            {" "}
+            <p className="w-fit whitespace-normal border-[1px] border-black p-3  bg-neutralWhite text-primary text-lg  dark:text-neutralWhite dark:bg-primary">
+              The price is reasonable and the design is cute. Their service is
+              excellent.
+            </p>
+          </div>
         </div>
         <div className="min-[375px]:max-sm:min-w-[80svw] min-[375px]:px-6 sm:w-1/2 sm:px-4 md:px-8 sm:py-4  lg:px-12 flex flex-col items-center lg:bg-secondary dark:bg-[#1a2e42] xl:pb-0 xl:px-8 float-start">
           <div className="relative z-0">
@@ -280,10 +285,12 @@ function Feedback() {
               <p className="text-2xl text-white">Restaurent Owner</p>
             </div>
           </div>
-          <p className="w-fit whitespace-normal border-[1px] border-black p-3 mt-6 bg-neutralWhite text-primary text-lg  dark:text-neutralWhite dark:bg-primary">
-            The price is reasonable and the design is cute. Their service is
-            excellent.
-          </p>{" "}
+          <div className="w-full lg:px-8 xl:px-0 min-[1920px]:px-8 mt-12">
+            <p className="w-fit whitespace-normal border-[1px] border-black p-3  bg-neutralWhite text-primary text-lg  dark:text-neutralWhite dark:bg-primary">
+              The price is reasonable and the design is cute. Their service is
+              excellent.
+            </p>{" "}
+          </div>
         </div>
         <div className="min-[375px]:max-sm:min-w-[80svw] min-[375px]:px-6 sm:w-1/2 sm:px-4 md:px-8 sm:py-4  lg:px-12 flex flex-col items-center lg:bg-secondary dark:bg-[#1a2e42] xl:pb-0 xl:px-8 xl:mb-32 float-end">
           <div className="relative z-0">
@@ -301,10 +308,12 @@ function Feedback() {
               <p className="text-2xl text-white">Business Owner</p>
             </div>
           </div>
-          <p className="w-fit whitespace-normal border-[1px] border-black p-3 mt-6 bg-neutralWhite text-primary text-lg  dark:text-neutralWhite dark:bg-primary">
-            The price is reasonable and the design is cute. Their service is
-            excellent.
-          </p>{" "}
+          <div className="w-full lg:px-8 xl:px-0 min-[1920px]:px-8 mt-12">
+            <p className="w-fit whitespace-normal border-[1px] border-black p-3  bg-neutralWhite text-primary text-lg  dark:text-neutralWhite dark:bg-primary">
+              The price is reasonable and the design is cute. Their service is
+              excellent.
+            </p>{" "}
+          </div>
         </div>
       </div>
     </div>

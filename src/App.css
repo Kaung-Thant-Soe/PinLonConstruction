@@ -140,7 +140,9 @@
     background-position-y: -10rem, 20rem, 6rem, -20rem, -48rem, 60rem;
   } */
 }
-
+.slick-prev:before,.slick-next:before {
+  display: none;
+}
 .fade-enter {
   opacity: 0;
 }
