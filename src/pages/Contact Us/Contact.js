@@ -1,5 +1,5 @@
 import Nav from "../../Navigation/Nav";
-
+import React, { useEffect } from "react";
 import contactHead from "./contactHead.png";
 import mobilecontactHead from "./mobileContact.png";
 
@@ -8,11 +8,14 @@ import { UserContext } from "../../App";
 import { useContext } from "react";
 
 function Contact() {
-  const {dark,setDark} = useContext(UserContext);
+  const { dark, setDark } = useContext(UserContext);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Nav />
-      <div className={dark === 'dark' ? "dark" : ""}>
+      <div className={dark === "dark" ? "dark" : ""}>
         <Head />
         <Footer />
       </div>

@@ -24,8 +24,15 @@ import darkyoutube from "../footer/assests/dark mode/darkYoutube.png";
 
 import { UserContext } from "../App";
 import { useContext } from "react";
+import { useHref } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
+console.log(i18next);
 function FirstFooter() {
   const dark = useContext(UserContext);
+  const { lng, setLng } = useContext(UserContext);
+  const { t } = useTranslation();
+
   return (
     <>
       <div className="sm:bg-secondary dark:bg-[#0A0B14] min-[375px]:bg-neutralWhite min-[375px]:py-6 min-[375px]:gap-4 sm:gap-4 sm:py-8 sm:px-4 flex sm:flex-row xl:py-20 lg:px-12 lg:py-12 lg:gap-12 xl:px-28 items-center min-[375px]:flex-col min-[375px]:w-full xl:gap-12">
@@ -47,51 +54,57 @@ function FirstFooter() {
         <div className="sm:w-3/6 xl:px-8 ">
           <div className="min-[375px]:py-6 min-[375px]:px-0  sm:px-4 sm:py-6 min-[375px]:bg-secondary sm:bg-neutralWhite dark:bg-[#1a2e42]  xl:py-12 lg:px-12 xl:px-6  lg:py-10 h-full flex flex-col justify-center min-[1920px]:px-12">
             <div className="p-5">
-              <h2 className="min-[375px]:text-xl sm:text-3xl min-[375px]:px-8 dark:text-neutralWhite text-primary font-header  min-[1920px]:text-5xl">
+              <h2 className="min-[375px]:text-xl sm:text-3xl min-[375px]:px-8 sm:px-0 dark:text-neutralWhite text-primary font-header  min-[1920px]:text-5xl">
                 Get In touch
               </h2>
-              <h3 className="min-[375px]:text-base sm:text-xl min-[375px]:px-8 sm:px-6 dark:text-secondary text-primary font-body min-[1920px]:text-3xl">
+              <h3 className="min-[375px]:text-base sm:text-xl min-[375px]:px-8 sm:px-0 dark:text-secondary text-primary font-body min-[1920px]:text-3xl">
                 You can reach us anytime
               </h3>
             </div>
-            <form className="flex min-[375px]:px-8 sm:px-6 flex-col justify-center lg:gap-4 mt-6 min-[375px]:mt-3 sm:gap-2 min-[375px]:gap-2">
+            <form
+              className={
+                i18next.language === "mm"
+                  ? "flex min-[375px]:px-8 sm:px-0 flex-col justify-center lg:gap-4 mt-6 min-[375px]:mt-3 min-[375px]:gap-2 "
+                  : "flex min-[375px]:px-8 sm:px-6 flex-col justify-center lg:gap-4 mt-6 min-[375px]:mt-3 min-[375px]:gap-2 "
+              }
+            >
               <div className="flex w-full h-full">
                 <div className="flex flex-row justify-between w-full gap-4">
-                  <label className="w-full min-[375px]:h-12 sm:h-8 2xl:h-16">
+                  <label className="w-full min-[375px]:h-12 sm:h-9 2xl:h-16">
                     <input
                       type="text"
-                      placeholder="First Name"
-                      className="w-full placeholder:opacity-50 ps-4 h-8 2xl:h-full 2xl:py-4 placeholder:text-sm 2xl:placeholder:text-2xl min-[375px]:h-full"
+                      placeholder={t("firstName")}
+                      className={`w-full placeholder:opacity-50 ps-2 h-8 2xl:h-full 2xl:py-4 placeholder:text-sm 2xl:placeholder:text-2xl min-[375px]:h-full`}
                     />
                   </label>
-                  <label className="w-full min-[375px]:h-12 sm:h-8 2xl:h-16">
+                  <label className="w-full min-[375px]:h-12 sm:h-9 2xl:h-16">
                     <input
                       type="text"
-                      placeholder="Second Name"
-                      className="w-full sm:ps-2 placeholder:opacity-50 ps-4 h-8 2xl:h-full 2xl:py-4 placeholder:text-sm 2xl:placeholder:text-2xl min-[375px]:h-full"
+                      placeholder={t("secondName")}
+                      className={`w-full sm:ps-2 placeholder:opacity-50 ps-2 h-8 2xl:h-full 2xl:py-4 placeholder:text-sm 2xl:placeholder:text-2xl min-[375px]:h-full`}
                     />
                   </label>
                 </div>
               </div>
-              <label className="w-full min-[375px]:h-12 sm:h-8 2xl:h-16">
+              <label className="w-full min-[375px]:h-12 sm:h-9 2xl:h-16">
                 <input
                   type="email"
-                  className="w-full placeholder:opacity-50 ps-4 h-8 2xl:h-full 2xl:py-4 placeholder:text-sm 2xl:placeholder:text-2xl min-[375px]:h-full"
-                  placeholder="Your Email"
+                  className="w-full placeholder:opacity-50 ps-2 h-8 2xl:h-full 2xl:py-4 placeholder:text-sm 2xl:placeholder:text-2xl min-[375px]:h-full"
+                  placeholder={t("email")}
                 />
               </label>
-              <label className="w-full min-[375px]:h-12 sm:h-8 2xl:h-16">
+              <label className="w-full min-[375px]:h-12 sm:h-9 2xl:h-16">
                 <input
                   type="tel"
-                  className="w-full placeholder:opacity-50 ps-4 h-8 2xl:h-full 2xl:py-4 placeholder:text-sm 2xl:placeholder:text-2xl min-[375px]:h-full"
-                  placeholder="Your Phone Number"
+                  className="w-full placeholder:opacity-50 ps-2 h-8 2xl:h-full 2xl:py-4 placeholder:text-sm 2xl:placeholder:text-2xl min-[375px]:h-full"
+                  placeholder={t("phoneNumber")}
                 />
               </label>
               <textarea
                 cols="30"
                 rows="10"
-                className="lg:h-28 sm:h-16 placeholder:opacity-50 placeholder:pt-4 ps-4 2xl:placeholder:text-2xl min-[375px]:h-24 2xl:h-32"
-                placeholder="How Can we help You?"
+                className="lg:h-28 sm:h-16 placeholder:opacity-50 placeholder:pt-4 ps-2 2xl:placeholder:text-2xl min-[375px]:h-24 2xl:h-32"
+                placeholder={t("help")}
               ></textarea>
               <div className="text-center flex justify-center mt-4">
                 <div className="min-[375px]:w-[5rem]  lg:w-[7.1rem]   border-2 border-black dark:border-primary">
@@ -111,34 +124,50 @@ function FirstFooter() {
             Our Social Media
           </h2>
           <div className="flex items-center xl:gap-8 lg:gap-6 sm:gap-6 min-[375px]:gap-3">
-            <img
-              src={dark.dark === "dark" ? darkfacebook : facebook}
-              alt="facebook"
-            />
-            <img
-              src={dark.dark === "dark" ? darkinstagram : instagram}
-              alt="instagram"
-            />
-            <img
-              src={dark.dark === "dark" ? darkyoutube : youtube}
-              alt="youtube"
-            />
-            <img
-              src={dark.dark === "dark" ? darktwitter : twitter}
-              alt="twitter"
-            />
-            <img
-              src={dark.dark === "dark" ? darktiktok : tiktok}
-              alt="tiktok"
-            />
-            <img
-              src={dark.dark === "dark" ? darkwhatup : whatup}
-              alt="whatup"
-            />
+            <a href="https://www.facebook.com/">
+              <img
+                src={dark.dark === "dark" ? darkfacebook : facebook}
+                alt="facebook"
+              />
+            </a>
+            <a href="https://www.instagram.com/">
+              {" "}
+              <img
+                src={dark.dark === "dark" ? darkinstagram : instagram}
+                alt="instagram"
+              />
+            </a>
+            <a href="https://www.youtube.com/">
+              <img
+                src={dark.dark === "dark" ? darkyoutube : youtube}
+                alt="youtube"
+              />
+            </a>
+            <a href="https://x.com/">
+              <img
+                src={dark.dark === "dark" ? darktwitter : twitter}
+                alt="twitter"
+              />
+            </a>
+            <a href="https://www.tiktok.com/">
+              <img
+                src={dark.dark === "dark" ? darktiktok : tiktok}
+                alt="tiktok"
+              />
+            </a>
+            <a href="https://web.whatsapp.com/">
+              <img
+                src={dark.dark === "dark" ? darkwhatup : whatup}
+                alt="whatup"
+              />
+            </a>
           </div>
         </div>
-        <div className="w-full min-[375px]:py-4 min-[375px]:px-6  sm:items-center flex flex-col lg:items-start font-header min-[375px]:gap-2 lg:gap-1 min-[375px]:text-base lg:text-xl xl:text-3xl text-primary dark:text-neutralWhite">
-          <div className="flex items-center bg-[rgba(33,67,102,0.03)] lg:py-0 xl:py-4 sm:px-8 min-[375px]:px-4 dark:bg-[#161515]">
+        <div
+          className="w-full min-[375px]:py-4 min-[375px]:px-6  sm:items-center flex flex-col lg:items-start font-header min-[375px]:gap-2 lg:gap-1 min-[375px]:text-base lg:text-xl xl:text-3xl text-primary dark:text-neutralWhite cursor-pointer
+        "
+        >
+          <div className="flex items-center bg-[rgba(33,67,102,0.03)] lg:py-0 xl:py-4 sm:px-8 min-[375px]:px-4 dark:bg-[#161515]  cursor-pointer">
             <img
               src={dark.dark === "dark" ? darklocation : location}
               alt="location"
@@ -149,7 +178,10 @@ function FirstFooter() {
               <br className="min-[375px]:hidden" /> Hlaing Tsp, Yangon, Myanmar.
             </p>
           </div>
-          <div className="flex items-center bg-[#21436608] lg:py-0 xl:py-4 sm:px-8 min-[375px]:py-2 min-[375px]:px-4 dark:bg-[#161515] ">
+          <div
+            className="flex items-center bg-[#21436608] lg:py-0 xl:py-4 sm:px-8 min-[375px]:py-2 min-[375px]:px-4 dark:bg-[#161515]  cursor-pointer"
+            onClick={() => (window.location = "mailto:lin453248@gmail.com")}
+          >
             <img
               src={dark.dark === "dark" ? darkmail : mail}
               alt="mail"
@@ -157,13 +189,20 @@ function FirstFooter() {
             />
             <p className="">lin453248@gmail.com</p>
           </div>
-          <div className="flex items-center bg-[#21436608] lg:py-0 xl:py-4 sm:px-8  min-[375px]:py-2 min-[375px]:px-4 dark:bg-[#161515]">
+          <div
+            className="flex items-center bg-[#21436608] lg:py-0 xl:py-4 sm:px-8  min-[375px]:py-2 min-[375px]:px-4 dark:bg-[#161515]  cursor-pointer"
+            onClick={() => (
+              (window.location = "tel:+959778589398"), console.log("calldiv")
+            )}
+          >
             <img
               src={dark.dark === "dark" ? darkphone : phone}
               alt="phone"
               className="lg:py-6 xl:py-4 mr-6 "
             />
-            <p className="">+959-778-589-398</p>
+            <a className="" href="tel:+959778589398">
+              +959-778-589-398
+            </a>
           </div>
         </div>
       </div>

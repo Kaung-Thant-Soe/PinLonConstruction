@@ -17,13 +17,19 @@ import Footer from "../../footer/main-footer";
 import { Frame } from "../About/About";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../App";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { useTranslation } from "react-i18next";
+import "../../i18n/i18n";
 function Home() {
   const { dark, setDark } = useContext(UserContext);
   const mode = window.localStorage.getItem("dark");
+  const { i18n } = useTranslation();
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    }, [])
 
   return (
     <>

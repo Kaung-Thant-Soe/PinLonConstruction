@@ -54,11 +54,14 @@ import Slider from "react-slick";
 // import mobile2 from "./assests/header/mobile2.png";
 // import mobile3 from "./assests/header/mobile3.png";
 import { UserContext } from "../../App";
-import { useContext } from "react";
+import { useContext,useEffect } from "react";
 
 function Project() {
   const { dark, setDark } = useContext(UserContext);
   const isMobile = window.innerWidth < 1025;
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    }, [])
   const condo = [
     { src: condo1, title: "condo", buildingName: "44TH STREET" },
     { src: condo2, title: "condo", buildingName: "TOKYO HOUSE" },
@@ -172,7 +175,7 @@ function Project() {
     const listBtn = btnName.map((item, index) => (
       <li
         key={index}
-        className="bg-neutralWhite h-full text-centermin-[375px]:max-lg:w-36 font-medium min-[375px]:max-lg:bg-primary min-[375px]:max-lg:text-neutralWhite  min-[375px]:max-lg:ring-1 min-[375px]:max-lg:ring-black  z-10  "
+        className="bg-neutralWhite h-full text-centermin-[375px]:max-lg:w-36 font-medium min-[375px]:max-lg:bg-primary min-[375px]:max-lg:text-neutralWhite  min-[375px]:max-lg:ring-1 min-[375px]:max-lg:ring-black  z-10  cursor-pointer"
       >
         <a
           className={`${bname === item ? "bg-chip text-neutralWhite" : ""} block w-full h-full px-6 py-3`}
@@ -184,21 +187,21 @@ function Project() {
     ));
     return (
       <>
-        <div className="h-full bg-primary min-[375px]:max-lg:h-36   flex flex-row justify-center dark:bg-black">
+        <div className="h-full bg-primary min-[375px]:max-lg:h-36   flex flex-row justify-center select-none dark:bg-black">
           <ul className="flex w-fit h-fit flex-row justify-center text-lg items-center gap-20 text-primary py-8 min-[375px]:max-lg:flex-col  min-[375px]:max-lg:gap-0 uppercase tracking-widest ">
             <li
-              className="bg-neutralWhite h-full text-center min-[375px]:max-lg:py-0  min-[375px]:max-lg:w-36   visited:text-neutralWhite min-[375px]:max-lg:bg-chip min-[375px]:max-lg:text-neutralWhite font-medium min-[375px]:max-lg:mt-3"
+              className="bg-neutralWhite h-full text-center min-[375px]:max-lg:py-0  min-[375px]:max-lg:w-36   visited:text-neutralWhite min-[375px]:max-lg:bg-chip min-[375px]:max-lg:text-neutralWhite font-medium min-[375px]:max-lg:mt-3 cursor-pointer "
               onClick={() => setMobile(!mobile)}
             >
               <a
-                className={` w-full flex flex-row items-center justify-center gap-4 min-[375px]:max-lg:py-4 px-6 py-2 ${bname === "All" ? "bg-chip text-neutralWhite" : ""}`}
+                className={` w-full flex flex-row items-center justify-center gap-4 min-[375px]:max-lg:py-4  px-6 py-3 ${bname === "All" ? "bg-chip text-neutralWhite" : ""}`}
                 onClick={() => setBname("All")}
               >
                 <span>All</span>
                 <img
                   src={vector}
                   alt="down arrow"
-                  className="lg:hidden min-[375px]:block"
+                  className="lg:hidden min-[375px]:block cursor-pointer"
                 />
               </a>
             </li>

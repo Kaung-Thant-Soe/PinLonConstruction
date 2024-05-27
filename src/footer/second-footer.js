@@ -25,27 +25,47 @@ import { useContext } from "react";
 function SecondaryFooter() {
   const dark = useContext(UserContext);
   function MobileFooter() {
+    
     return (
       <div className="md:hidden min-[375px]:block dark:bg-[#0A0B14]">
         <div className="flex flex-row items-center w-full justify-center gap-6 py-12 px-3 md:justify-around sm:gap-8 ">
-          <div>
-            <img src={dark.dark === 'dark' ? darkfacebook : facebook} alt="facebook Icon" />
-          </div>
-          <div>
-            <img src={dark.dark === 'dark' ? darktwitter : twitter} alt="twitter Icon" />
-          </div>
-          <div>
-            <img src={dark.dark === 'dark' ? darkwhatup : whatup} alt="whatup Icon" />
-          </div>
-          <div>
-            <img src={dark.dark === 'dark' ? darkinstagram : instagram} alt="instagram Icon" />
-          </div>
-          <div>
-            <img src={dark.dark === 'dark' ? darkyoutube : youtube} alt="youtube Icon" />
-          </div>
-          <div>
-            <img src={dark.dark === 'dark' ? darktiktok : tiktok} alt="tiktok Icon" />
-          </div>
+        <a href="https://www.facebook.com/">
+              <img
+                src={dark.dark === "dark" ? darkfacebook : facebook}
+                alt="facebook"
+              />
+            </a>
+            <a href="https://www.instagram.com/">
+              {" "}
+              <img
+                src={dark.dark === "dark" ? darkinstagram : instagram}
+                alt="instagram"
+              />
+            </a>
+            <a href="https://www.youtube.com/">
+              <img
+                src={dark.dark === "dark" ? darkyoutube : youtube}
+                alt="youtube"
+              />
+            </a>
+            <a href="https://x.com/">
+              <img
+                src={dark.dark === "dark" ? darktwitter : twitter}
+                alt="twitter"
+              />
+            </a>
+            <a href="https://www.tiktok.com/">
+              <img
+                src={dark.dark === "dark" ? darktiktok : tiktok}
+                alt="tiktok"
+              />
+            </a>
+            <a href="https://web.whatsapp.com/">
+              <img
+                src={dark.dark === "dark" ? darkwhatup : whatup}
+                alt="whatup"
+              />
+            </a>
         </div>
         <div className="bg-secondary dark:bg-[#0A0B14] py-6  dark:border-t-[1px] dark:border-t-secondary ">
           <p className=" text-sm text-primary opacity-50 text-center dark:text-secondary">
@@ -60,17 +80,35 @@ function SecondaryFooter() {
       <>
         <div className="min-[375px]:hidden md:block dark:bg-[#0A0B14]  ">
           <div className="sm:flex  flex-col items-center text-3xl py-8 md:py-12 gap-4 md:text-xl text-primary font-body dark:text-secondary">
-            <div className="flex flex-row items-center bg-secondary dark:bg-[#161515] justify-center w-fit py-2 px-6 rounded gap-6">
-              <img src={dark.dark === 'dark' ? darklocation : gps} alt="gps icon" />
+            <div className="flex flex-row items-center bg-secondary dark:bg-[#161515] justify-center w-fit py-2 px-6 rounded gap-6 cursor-pointer">
+              <img
+                src={dark.dark === "dark" ? darklocation : gps}
+                alt="gps icon"
+              />
               <p>No.136, Aungmingalar Str,Hlaing Tsp, Yangon, Myanmar.</p>
             </div>
             <div className="flex flex-row items-center justify-center gap-8">
-              <div className="flex flex-row items-center justify-center bg-secondary dark:bg-[#161515] w-fit py-2 px-6 rounded  gap-6">
-                <img src={dark.dark === 'dark' ? darkmail : email} alt="mail icon" />
+              <div
+                className="flex flex-row items-center justify-center bg-secondary dark:bg-[#161515] w-fit py-2 px-6 rounded  gap-6 cursor-pointer"
+                onClick={() => (window.location = "mailto:lin453248@gmail.com")}
+              >
+                <img
+                  src={dark.dark === "dark" ? darkmail : email}
+                  alt="mail icon"
+                />
                 <p>lin453248@gmail.com</p>
               </div>
-              <div className="flex flex-row items-center justify-center bg-secondary dark:bg-[#161515] w-fit py-2 px-6 rounded gap-6">
-                <img src={dark.dark === 'dark' ? darkphone : phone} alt="phone icon" />
+              <div
+                className="flex flex-row items-center justify-center bg-secondary dark:bg-[#161515] w-fit py-2 px-6 rounded gap-6 cursor-pointer"
+                onClick={() => (
+                  (window.location = "tel:+959778589398"),
+                  console.log("calldiv")
+                )}
+              >
+                <img
+                  src={dark.dark === "dark" ? darkphone : phone}
+                  alt="phone icon"
+                />
                 <p>+959-778-589-398</p>
               </div>
             </div>

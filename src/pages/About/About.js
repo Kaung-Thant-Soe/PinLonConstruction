@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import Nav from "../../Navigation/Nav";
 import about from "../About/assests/about-us-building.png";
 import mission from "../About/assests/our-mission-building.png";
@@ -19,6 +20,9 @@ import Slider from "react-slick";
 
 function About() {
   const { dark, setDark } = useContext(UserContext);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Nav />
@@ -60,7 +64,8 @@ export function Frame({
       className={`border-[1px] border-primary dark:border-secondary ${c}  ${mobile ? "w-full h-full " : `w-[${w}] h-[${h}] `}`}
     >
       <div
-        className=" md:filter-none relative h-full w-full z-0 flex flex-col items-center cursor-pointer  ml-2"
+        className={`${isLetter === true ? "cursor-pointer" : "cursor-default"}
+          md:filter-none relative h-full w-full z-0 flex flex-col items-center ml-2`}
         onClick={handleMouseMove}
       >
         <p

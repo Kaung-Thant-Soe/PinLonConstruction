@@ -24,11 +24,14 @@ import after4 from "../Service/assests/After Service/after4.png";
 import after5 from "../Service/assests/After Service/after5.png";
 import mobileAfter from "../Service/assests/After Service/mobileAfter.png";
 import { UserContext } from "../../App";
-import { useContext } from "react";
+import { useContext,useEffect } from "react";
 
 import Footer from "../../footer/second-footer";
 function Service() {
   const {dark,setDark} = useContext(UserContext);
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    }, [])
   return (
     <>
       <Nav />

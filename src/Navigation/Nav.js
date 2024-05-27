@@ -6,6 +6,7 @@ import Mobilelogo from "../Navigation/Mobile-logo.png";
 import { Link, NavLink, resolvePath, useParams } from "react-router-dom";
 import { UserContext } from "../App";
 import { useLocation } from "react-router-dom";
+import LanguageSelector from "../LanguageSelector/languageSelector";
 function Nav() {
   const { dark, setDark } = useContext(UserContext);
   const navList = [
@@ -57,7 +58,7 @@ function Nav() {
   return (
     <>
       <nav className="dark:bg-[#101827]  min-[375px]:py-4 sm:py-8 bg-primary">
-        <div className="flex items-center text-primary min-[375px]:justify-between sm:justify-center sm:gap-[16.5rem] md:gap-20 xl:gap-32  ps-1">
+        <div className="flex items-center text-primary min-[375px]:justify-between sm:justify-center sm:gap-[16.5rem] md:gap-12 xl:gap-24  ps-2">
           <NavLink to="/home" className="h-20 sm:h-12 flex items-center ">
             <img
               src={logo}
@@ -71,7 +72,7 @@ function Nav() {
             />
           </NavLink>
           <div>
-            <div className="md:flex flex-row items-center sm:gap-6 lg:gap-20 sm:text-lg xl:text-2xl font-body min-[375px]:hidden text-neutralWhite pe-6">
+            <div className="md:flex flex-row items-center sm:gap-6 lg:gap-12 sm:text-lg xl:text-2xl font-body min-[375px]:hidden text-neutralWhite pe-6">
               {navList.map((item, index) => (
                 <li
                   key={index}
@@ -108,6 +109,7 @@ function Nav() {
                   {dark === "dark" ? "Light Mode" : "Dark Mode"}
                 </button>
               </div>
+              <LanguageSelector />
             </div>
             {/* Mobile Nav */}
             <div className="md:hidden text-neutralWhite min-[375px]:block ">
@@ -146,6 +148,9 @@ function Nav() {
                     </NavLink>
                   </div>
                 ))}
+                <div className={`text-center ${isClick ? "block" : "hidden"}   mt-[1px]`}>
+                  <LanguageSelector />
+                </div>
                 <div
                   className={`text-center ${isClick ? "block" : "hidden"} bg-primary px-1 py-1  mt-[1px]`}
                 >

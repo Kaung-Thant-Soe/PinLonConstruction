@@ -14,6 +14,9 @@ import Service from "../src/pages/Service/service.js";
 import Contact from "../src/pages/Contact Us/Contact.js";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 import { createContext, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
+
 
 const router = createBrowserRouter([
   { path: "*", element: <Home /> },
@@ -22,7 +25,7 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: '',
+    path: "",
     element: <Home />,
   },
   {
@@ -46,6 +49,7 @@ const router = createBrowserRouter([
 export const UserContext = createContext();
 function App() {
   const [dark, setDark] = useState(localStorage.getItem("dark") || "light");
+  const [lng, setLng] = useState("en");
   window.localStorage.setItem("dark", dark);
   //  console.log(dark);
   // console.log(localStorage.getItem('dark') || 'light');
