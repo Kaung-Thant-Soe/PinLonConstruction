@@ -6,7 +6,7 @@ import Mobilelogo from "../Navigation/Mobile-logo.png";
 import { Link, NavLink, resolvePath, useParams } from "react-router-dom";
 import { UserContext } from "../App";
 import { useLocation } from "react-router-dom";
-import LanguageSelector from "../LanguageSelector/languageSelector";
+
 function Nav() {
   const { dark, setDark } = useContext(UserContext);
   const navList = [
@@ -109,7 +109,7 @@ function Nav() {
                   {dark === "dark" ? "Light Mode" : "Dark Mode"}
                 </button>
               </div>
-              <LanguageSelector />
+              {/* <LanguageSelector /> */}
             </div>
             {/* Mobile Nav */}
             <div className="md:hidden text-neutralWhite min-[375px]:block ">
@@ -148,9 +148,11 @@ function Nav() {
                     </NavLink>
                   </div>
                 ))}
-                <div className={`text-center ${isClick ? "block" : "hidden"}   mt-[1px]`}>
+                {/* <div
+                  className={`text-center ${isClick ? "block" : "hidden"}   mt-[1px]`}
+                >
                   <LanguageSelector />
-                </div>
+                </div> */}
                 <div
                   className={`text-center ${isClick ? "block" : "hidden"} bg-primary px-1 py-1  mt-[1px]`}
                 >

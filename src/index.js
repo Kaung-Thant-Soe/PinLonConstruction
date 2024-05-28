@@ -15,7 +15,7 @@ import App from "./App";
 // import Project from "../src/pages/Project/project.js";
 // import Service from "../src/pages/Service/service.js";
 // import Contact from "../src/pages/Contact Us/Contact.js";
-import './i18n/i18n.js'
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

@@ -23,16 +23,89 @@ import darkwhatup from "../footer/assests/dark mode/darkWhatsUp.png";
 import darkyoutube from "../footer/assests/dark mode/darkYoutube.png";
 
 import { UserContext } from "../App";
-import { useContext } from "react";
-import { useHref } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import i18next from "i18next";
-console.log(i18next);
+import { useContext, useState } from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+
+export const ContactUs = () => {
+  // return (
+  //   <form ref={form} onSubmit={sendEmail}>
+  //     <label>Name</label>
+  //     <input type="text" name="user_name" />
+  //     <label>Email</label>
+  //     <input type="email" name="user_email" />
+  //     <label>Message</label>
+  //     <textarea name="message" />
+  //     <input type="submit" value="Send" />
+  //   </form>
+  // );
+};
+
+// export const ContactUs = () => {
+//   return (
+//     <form ref={form} onSubmit={sendEmail}>
+//       <label>Name</label>
+//       <input type="text" name="user_name" />
+//       <label>Email</label>
+//       <input type="email" name="user_email" />
+//       <label>Message</label>
+//       <textarea name="message" />
+//       <input type="submit" value="Send" />
+//     </form>
+//   );
+// };
+
 function FirstFooter() {
   const dark = useContext(UserContext);
-  const { lng, setLng } = useContext(UserContext);
-  const { t } = useTranslation();
-
+  const [firstname, setFirstName] = useState("");
+  const [secondname, setSecondName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [phnumber, setPhnumber] = useState("");
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+    console.log(e);
+    emailjs
+      .sendForm("service_1a1nboo", "template_sghioiq", form.current, {
+        publicKey: "67gLqRJVHYXJVq4Ul",
+      })
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          setFirstName("");
+          setSecondName("");
+          setEmail("");
+          setPhnumber("");
+          setMessage("");
+        },
+        (error) => {
+          console.log("FAILED...", error);
+        },
+      );
+  };
+  // emailjs
+  //   .send(
+  //     "service_1a1nboo",
+  //     "template_sghioiq",
+  //     "67gLqRJVHYXJVq4Ul",
+  //     // ,{
+  //     //   from_name: "Nge Lay",
+  //     //   to_name: "Kaung Thant Soe",
+  //     //   message: "How are you ",
+  //     //   user_email: "lay54875@gmail.com",
+  //     // publicKey: "67gLqRJVHYXJVq4Ul",
+  //     // }
+  //   )
+  //   .then(
+  //     (response) => {
+  //       console.log("SUCCESS!", response.status, response.text);
+  //     },
+  //     (error) => {
+  //       console.log("FAILED...", error);
+  //     },
+  //   );
+  // };
   return (
     <>
       <div className="sm:bg-secondary dark:bg-[#0A0B14] min-[375px]:bg-neutralWhite min-[375px]:py-6 min-[375px]:gap-4 sm:gap-4 sm:py-8 sm:px-4 flex sm:flex-row xl:py-20 lg:px-12 lg:py-12 lg:gap-12 xl:px-28 items-center min-[375px]:flex-col min-[375px]:w-full xl:gap-12">
@@ -62,26 +135,30 @@ function FirstFooter() {
               </h3>
             </div>
             <form
-              className={
-                i18next.language === "mm"
-                  ? "flex min-[375px]:px-8 sm:px-0 flex-col justify-center lg:gap-4 mt-6 min-[375px]:mt-3 min-[375px]:gap-2 "
-                  : "flex min-[375px]:px-8 sm:px-6 flex-col justify-center lg:gap-4 mt-6 min-[375px]:mt-3 min-[375px]:gap-2 "
-              }
+              className="flex min-[375px]:px-8 sm:px-0 flex-col justify-center lg:gap-4 mt-6 min-[375px]:mt-3 min-[375px]:gap-2"
+              ref={form}
+              onSubmit={sendEmail}
             >
               <div className="flex w-full h-full">
                 <div className="flex flex-row justify-between w-full gap-4">
                   <label className="w-full min-[375px]:h-12 sm:h-9 2xl:h-16">
                     <input
                       type="text"
-                      placeholder={t("firstName")}
-                      className={`w-full placeholder:opacity-50 ps-2 h-8 2xl:h-full 2xl:py-4 placeholder:text-sm 2xl:placeholder:text-2xl min-[375px]:h-full`}
+                      name="from_name"
+                      value={firstname}
+                      placeholder="Your First Name"
+                      className={`w-full placeholder:opacity-50 opacity-100 text-black ps-2 h-8 2xl:h-full 2xl:py-4 placeholder:text-sm 2xl:placeholder:text-2xl min-[375px]:h-full`}
+                      onChange={(e) => setFirstName(e.target.value)}
                     />
                   </label>
                   <label className="w-full min-[375px]:h-12 sm:h-9 2xl:h-16">
                     <input
                       type="text"
-                      placeholder={t("secondName")}
-                      className={`w-full sm:ps-2 placeholder:opacity-50 ps-2 h-8 2xl:h-full 2xl:py-4 placeholder:text-sm 2xl:placeholder:text-2xl min-[375px]:h-full`}
+                      name="from_name"
+                      value={secondname}
+                      placeholder="Your Second Name"
+                      className={`w-full sm:ps-2 placeholder:opacity-50 ps-2 h-8 2xl:h-full 2xl:py-4 placeholder:text-sm 2xl:placeholder:text-2xl min-[375px]:h-full opacity-100 text-black`}
+                      onChange={(e) => setSecondName(e.target.value)}
                     />
                   </label>
                 </div>
@@ -89,28 +166,36 @@ function FirstFooter() {
               <label className="w-full min-[375px]:h-12 sm:h-9 2xl:h-16">
                 <input
                   type="email"
-                  className="w-full placeholder:opacity-50 ps-2 h-8 2xl:h-full 2xl:py-4 placeholder:text-sm 2xl:placeholder:text-2xl min-[375px]:h-full"
-                  placeholder={t("email")}
+                  name="user_email"
+                  value={email}
+                  className="w-full placeholder:opacity-50 ps-2 h-8 2xl:h-full 2xl:py-4 placeholder:text-sm 2xl:placeholder:text-2xl min-[375px]:h-full opacity-100 text-black"
+                  placeholder="Your Email"
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </label>
               <label className="w-full min-[375px]:h-12 sm:h-9 2xl:h-16">
                 <input
                   type="tel"
-                  className="w-full placeholder:opacity-50 ps-2 h-8 2xl:h-full 2xl:py-4 placeholder:text-sm 2xl:placeholder:text-2xl min-[375px]:h-full"
-                  placeholder={t("phoneNumber")}
+                  value={phnumber}
+                  className="w-full placeholder:opacity-50 ps-2 h-8 2xl:h-full 2xl:py-4 placeholder:text-sm 2xl:placeholder:text-2xl min-[375px]:h-full opacity-100 text-black"
+                  placeholder="Your Phone Number"
+                  onChange={(e) => setPhnumber(e.target.value)}
                 />
               </label>
               <textarea
+                name="message"
                 cols="30"
+                value={message}
                 rows="10"
                 className="lg:h-28 sm:h-16 placeholder:opacity-50 placeholder:pt-4 ps-2 2xl:placeholder:text-2xl min-[375px]:h-24 2xl:h-32"
-                placeholder={t("help")}
+                placeholder="How can we help you?"
+                onChange={(e) => setMessage(e.target.value)}
               ></textarea>
               <div className="text-center flex justify-center mt-4">
                 <div className="min-[375px]:w-[5rem]  lg:w-[7.1rem]   border-2 border-black dark:border-primary">
                   <input
                     type="submit"
-                    className="h-full min-[375px]:py-1 min-[375px]:px-2 lg:py-1 lg:px-6 bg-chip text-neutralWhite mt-1 ml-1 lg:mt-2 lg:ml-2 text-xl"
+                    className="h-full min-[375px]:py-1 min-[375px]:px-2 lg:py-1 lg:px-6 bg-chip text-neutralWhite mt-1 ml-1 lg:mt-2 lg:ml-2 text-xl cursor-pointer"
                   />
                 </div>
               </div>
