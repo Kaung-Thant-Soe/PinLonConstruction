@@ -182,15 +182,17 @@ function FirstFooter() {
                   onChange={(e) => setPhnumber(e.target.value)}
                 />
               </label>
-              <textarea
-                name="message"
-                cols="30"
-                value={message}
-                rows="10"
-                className="lg:h-28 sm:h-16 placeholder:opacity-50 placeholder:pt-4 ps-2 2xl:placeholder:text-2xl min-[375px]:h-24 2xl:h-32"
-                placeholder="How can we help you?"
-                onChange={(e) => setMessage(e.target.value)}
-              ></textarea>
+              <label className="w-full ">
+                <textarea
+                  name="message"
+                  cols="30"
+                  value={message}
+                  rows="4"
+                  className="w-full h-full py-4 ps-2 opacity-100 text-black 2xl:text-2xl"
+                  placeholder="How can we help you?"
+                  onChange={(e) => setMessage(e.target.value)}
+                ></textarea>
+              </label>
               <div className="text-center flex justify-center mt-4">
                 <div className="min-[375px]:w-[5rem]  lg:w-[7.1rem]   border-2 border-black dark:border-primary">
                   <input
