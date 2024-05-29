@@ -144,7 +144,7 @@ function FirstFooter() {
                   <label className="w-full min-[375px]:h-12 sm:h-9 2xl:h-16">
                     <input
                       type="text"
-                      name="from_name"
+                      name="firstname"
                       value={firstname}
                       placeholder="Your First Name"
                       className={`w-full placeholder:opacity-50 opacity-100 text-black ps-2 h-8 2xl:h-full 2xl:py-4 placeholder:text-sm 2xl:placeholder:text-2xl min-[375px]:h-full`}
@@ -154,7 +154,7 @@ function FirstFooter() {
                   <label className="w-full min-[375px]:h-12 sm:h-9 2xl:h-16">
                     <input
                       type="text"
-                      name="from_name"
+                      name="secondname"
                       value={secondname}
                       placeholder="Your Second Name"
                       className={`w-full sm:ps-2 placeholder:opacity-50 ps-2 h-8 2xl:h-full 2xl:py-4 placeholder:text-sm 2xl:placeholder:text-2xl min-[375px]:h-full opacity-100 text-black`}
@@ -176,6 +176,7 @@ function FirstFooter() {
               <label className="w-full min-[375px]:h-12 sm:h-9 2xl:h-16">
                 <input
                   type="tel"
+                  name="phnumber"
                   value={phnumber}
                   className="w-full placeholder:opacity-50 ps-2 h-8 2xl:h-full 2xl:py-4 placeholder:text-sm 2xl:placeholder:text-2xl min-[375px]:h-full opacity-100 text-black"
                   placeholder="Your Phone Number"
