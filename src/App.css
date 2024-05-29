@@ -120,8 +120,8 @@
       url(./pages/Project/assests/header/right-bot-1.png);
     background-size: 90%;
     height: 100vh;
-    background-position-x: -45rem, -70rem, 0rem, 70rem,  55rem;
-    background-position-y: -70rem, 40rem,-2rem, -47rem,  60rem;
+    background-position-x: -45rem, -70rem, 0rem, 70rem, 55rem;
+    background-position-y: -70rem, 40rem, -2rem, -47rem, 60rem;
   }
 
   /* @media screen and (min-width:1920px) {
@@ -140,9 +140,12 @@
     background-position-y: -10rem, 20rem, 6rem, -20rem, -48rem, 60rem;
   } */
 }
-.slick-prev:before,.slick-next:before {
+
+.slick-prev:before,
+.slick-next:before {
   display: none;
 }
+
 .fade-enter {
   opacity: 0;
 }
